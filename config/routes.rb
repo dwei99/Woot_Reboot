@@ -7,13 +7,15 @@ Rails.application.routes.draw do
 
   get 'users/index'
 
-  get 'users/create'
+  post 'users/create' => "users#create"
 
   get 'users/login'
 
   get 'users/logout'
 
   get 'users/edit'
+
+  root "items#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
