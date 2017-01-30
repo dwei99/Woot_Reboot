@@ -30,11 +30,6 @@ class UsersController < ApplicationController
 
   def log_user
      @user = User.find_by_email(params[:email])
-     if !@user.errors.blank?
-       flash[:log_errors] = @user.errors.messages
-       puts flash[:log_errors]
-       return redirect_to '/login'
-     end
      if @user && @user.authenticate(params[:password])
        session[:id] = @user.id
        redirect_to "/"
