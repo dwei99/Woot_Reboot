@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'items/index'
+  root 'items#index'
 
   get 'items/show'
 
@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   get 'users/create'
 
-  get 'users/login'
+  post 'users/log_user' => 'users#log_user'
+
+  get '/login' => 'users#login'
 
   get 'users/logout'
 
