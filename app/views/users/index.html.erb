@@ -16,16 +16,16 @@
     <div class="col-md-4">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <label for="f_name">First Name</label>
-      <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name">
+      <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name" required>
       <label for="l_name">Last Name</label>
-      <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name" >
+      <input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name" required>
       <label for="">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> <br>
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Password" >
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
       <label for="password_confirmation">Password Conformation</label>
-      <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Password Confirmation" > <br>
+      <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Password Confirmation" required> <br>
       <button type="submit" class="btn btn-primary">Registration</button>
     </div>
   </div>
