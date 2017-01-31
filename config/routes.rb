@@ -3,11 +3,7 @@ Rails.application.routes.draw do
 
   get 'items/show'
 
-<<<<<<< HEAD
-  get 'items/show_item/:id' => "items#show_item"
-=======
   get 'items/show_item/:id' => 'items#show_item'
->>>>>>> cart
 
   get 'users/index'
 
