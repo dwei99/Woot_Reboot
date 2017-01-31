@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'users/edit'
 
+  get '/logout' => 'users#logout'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
