@@ -44,11 +44,11 @@
   </form>
 </div>
 
-<div class="">
-  <%= @cart.items.all %>
+
+<div class="container" height="100">
   <h3>Your Cart</h3>
-  <% @cart.items.each do |c| %>
-  <p><%= c.item.name %></p>
-  <p><%= c.item.quantity %></p>
+  <% @cart.items.each do |item| %>
+  <p><%= item.name %></p>
+  <p><%= item.quantity %></p>
   <% end %>
 </div>

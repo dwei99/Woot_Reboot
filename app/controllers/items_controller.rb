@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
     cart = Cart.find(session[:cart_id])
     item = Item.find(params[:id])
     CartItem.create(cart: cart, item: item)
-    redirect_to '/items/show_item/#{id}'
+    id = item.id
+    redirect_to "/items/show_item/#{item.id}"
   end
 end
