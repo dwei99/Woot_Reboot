@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   get 'items/show'
 
+<<<<<<< HEAD
   get 'items/show_item/:id' => "items#show_item"
+=======
+  get 'items/show_item/:id' => 'items#show_item'
+>>>>>>> cart
 
   get 'users/index'
 
@@ -18,6 +22,8 @@ Rails.application.routes.draw do
   get 'users/edit'
 
   get '/logout' => 'users#logout'
+
+  post '/add_to_cart/:id' => 'items#add_to_cart'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
