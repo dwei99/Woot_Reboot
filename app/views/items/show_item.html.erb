@@ -36,4 +36,19 @@
   </form>
   </div>
 </div>
+
+<div class="">
+  <form action="/add_to_cart/<%= @item.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" name="" value="Add to Cart">
+  </form>
+</div>
+
+<div class="">
+  <%= @cart.items.all %>
+  <h3>Your Cart</h3>
+  <% @cart.items.each do |c| %>
+  <p><%= c.item.name %></p>
+  <p><%= c.item.quantity %></p>
+  <% end %>
 </div>
