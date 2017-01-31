@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.all
+    @Deal_of_Day = Item.last
+    @categories = Category.all
     render 'index'
   end
 
@@ -7,5 +10,6 @@ class ItemsController < ApplicationController
   end
 
   def show_item
+    @item = Item.find_by_id(params[:id])
   end
 end
