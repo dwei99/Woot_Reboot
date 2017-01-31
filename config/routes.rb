@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'items/show'
 
-  get 'items/show_item'
+  get 'items/show_item/:id' => "items#show_item"
 
   get 'users/index'
 
