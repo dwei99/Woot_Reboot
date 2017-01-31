@@ -11,5 +11,6 @@ class ItemsController < ApplicationController
 
   def show_item
     @item = Item.find_by_id(params[:id])
+    @categories = Category.all
   end
 end
