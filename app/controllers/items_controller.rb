@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   def create_post
     if !session[:id].present?
       flash[:notice] = "If you want to post a comment, please log in."
-      return redirect_to "/items/discussion/#{item.id}"
+      return redirect_to "/items/discussion/#{params[:item_id]}"
     end
     user = User.find_by_id(session[:id])
     item = Item.find_by_id(params[:item_id])
