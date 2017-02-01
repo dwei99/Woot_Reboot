@@ -24,6 +24,10 @@ class ItemsController < ApplicationController
   end
 
   def checkout
+    @item = Item.find_by_id(params[:id])
+    @cart = Cart.find_by_id(session[:cart_id])
+    @cart_item = CartItem.where(cart: @cart, item: @item).first
+    @price = session[:total_price]
     render 'checkout'
   end
 
