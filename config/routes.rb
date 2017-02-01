@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   get 'items/show_item/:id' => 'items#show_item'
 
+  get 'items/discussion/:id' => "items#show_discussion"
+
+  post 'items/:item_id/create_post' => 'items#create_post'
+
   get 'users/index'
 
   post 'users/create' => "users#create"

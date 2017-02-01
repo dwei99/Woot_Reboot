@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Woot Reboot</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <%@categories.each do |category| %>
+      <li><a href="/category/show/<%=category.id%>"><%=category.title %></a></li>
+      <%end%>
+    </ul>
+  </div>
+</nav>
+
+<div class="container" style="margin-top: 35px">
+  <div class="page-header page-heading">
+    <h1 class="pull-left">  <%=@item.name%> </h1>
+    <div class="clearfix"></div>
+  </div>
+  <p class="lead">See what others are saying about this item. Or, add your own thoughts!</p>
+  <table class="table forum table-striped">
+    <tbody>
+      <% @item.discussions.each do |discussion| %>
+      <tr>
+        <td class="text-center"><i class="fa fa-question fa-2x text-primary"></i></td>
+          <td>
+            <h4><%=discussion.content%></h4>
+          </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+<form action="/items/<%=@item.id%>/create_post" method="post">
+  <% if flash[:notice] %>
+  <div class="alert alert-success">
+      <strong><%= flash[:notice] %></strong>
+  </div>
+  <%end%>
+  <% if flash[:errors] %>
+  <div class="alert alert-danger">
+      <% flash[:errors].each do |error| %> <br>
+      <strong><%= error%></strong>
+      <%end%>
+  </div>
+  <%end%>
+  <div class="form-group">
+    <div class="col-md-4">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="text" class="form-control" id="content" name="content" placeholder="Add your comment here..." required >
+      <br>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </div>
+  </div>
+</form>
