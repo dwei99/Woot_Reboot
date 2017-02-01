@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'items/show'
 
+  get 'items/checkout/:id' => 'items#checkout'
+
   get 'items/show_item/:id' => 'items#show_item'
 
   get 'items/discussion/:id' => "items#show_discussion"

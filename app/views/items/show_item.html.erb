@@ -9,6 +9,7 @@
       <li><a href="/category/show/<%=category.id%>"><%=category.title %></a></li>
       <%end%>
     </ul>
+    <a href="/items/checkout/<%=@item.id%>">View Cart</a>
   </div>
 </nav>
 
@@ -36,12 +37,4 @@
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="submit" name="" value="Add to Cart">
   </form>
-</div>
-
-<div class="container" height="100">
-  <h3>Your Cart</h3>
-  <% @cart.items.each do |item| %>
-  <p><%= item.name %></p>
-  <p><%= item.quantity %></p>
-  <% end %>
 </div>
