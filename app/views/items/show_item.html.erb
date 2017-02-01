@@ -25,17 +25,11 @@
 </div>
 </div>
 <div class="container">
-<div class="row">
-  <div class="col-sm-6">
-  <form class="" action="/items/create_post" method="post">
-    <div class="form-group">
-      <label for="message_content">Join the discussion</label>
-      <textarea class="form-control" id="message_content" rows="5"></textarea>
+  <div class="row">
+    <div class="col-sm-6">
+        <a class="btn btn-primary btn-lg" href="/items/discussion/<%=@item.id%>" role="button">Join The Discussion</a>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  </div>
-</div>
+  </div>  <br>
 
 <div class="">
   <form action="/add_to_cart/<%= @item.id %>" method="post">
