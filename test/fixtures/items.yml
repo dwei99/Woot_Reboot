@@ -6,6 +6,7 @@ one:
   img_url: MyString
   price: 1.5
   quantity: 1
+  category_id: 
 
 two:
   name: MyString
@@ -13,3 +14,4 @@ two:
   img_url: MyString
   price: 1.5
   quantity: 1
+  category_id: 

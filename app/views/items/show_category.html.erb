@@ -1,0 +1,54 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+});
+</script>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Woot Reboot</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <%@categories.each do |category| %>
+      <li><a href="/category/show/<%=category.id%>"><%=category.title %></a></li>
+      <%end%>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+    <div class="well well-sm">
+        <strong><%=@category.title%></strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div>
+    <div id="products" class="row list-group">
+      <%@category.items.each do |item| %>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="<%=item.img_url%>" alt="<%=item.description%>" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        <%=item.name%></h4>
+                    <p class="group inner list-group-item-text">
+                    <%=item.description%></p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $<%=item.price%></p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%end%>
+      </div>
+    </div>
+</div>

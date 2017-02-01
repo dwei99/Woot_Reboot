@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   post 'items/:item_id/create_post' => 'items#create_post'
 
+  get '/category/show/:id' => "items#show_category"
+
   get 'users/index'
 
   post 'users/create' => "users#create"

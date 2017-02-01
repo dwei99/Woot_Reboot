@@ -1,3 +1,3 @@
 class Item < ActiveRecord::Base
-  has_many :discussions
+  belongs_to :category
 end

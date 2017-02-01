@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :img_url
       t.float :price
       t.integer :quantity
+      t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false
     end

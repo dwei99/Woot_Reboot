@@ -47,12 +47,9 @@ ActiveRecord::Schema.define(version: 20170131165419) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
-    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "categories", ["item_id"], name: "index_categories_on_item_id", using: :btree
 
   create_table "discussions", force: :cascade do |t|
     t.string   "content"
@@ -71,9 +68,12 @@ ActiveRecord::Schema.define(version: 20170131165419) do
     t.string   "img_url"
     t.float    "price"
     t.integer  "quantity"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
 
   create_table "purchases", force: :cascade do |t|
     t.integer  "user_id"
@@ -107,9 +107,9 @@ ActiveRecord::Schema.define(version: 20170131165419) do
   add_foreign_key "addresses", "users"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "items"
-  add_foreign_key "categories", "items"
   add_foreign_key "discussions", "items"
   add_foreign_key "discussions", "users"
+  add_foreign_key "items", "categories"
   add_foreign_key "purchases", "items"
   add_foreign_key "purchases", "users"
   add_foreign_key "reviews", "items"

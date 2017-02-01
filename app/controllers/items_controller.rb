@@ -22,6 +22,13 @@ class ItemsController < ApplicationController
     render 'show_item'
   end
 
+  def show_category
+    @category = Category.find(params[:id])
+    #  @category = Category.find(params[:id]).items
+     @categories = Category.all
+
+  end
+
   def show_discussion
     @item = Item.find_by_id(params[:id])
     @discussions = Item.find(@item).discussions
