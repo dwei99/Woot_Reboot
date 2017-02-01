@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
-    @Deal_of_Day = Item.last
+    @Deal_of_Day = Item.offset(rand(Item.count)).first
+
     @categories = Category.all
     render 'index'
   end
