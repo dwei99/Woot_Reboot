@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def log_user
      @user = User.find_by_email(params[:email])
      if @user && @user.authenticate(params[:password])
-       session[:id] = @user.id
+       session[:user_id] = @user.id
        redirect_to "/"
      else
        flash[:log_error] = 'Invalid email/password combination'

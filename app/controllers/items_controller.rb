@@ -14,13 +14,16 @@ class ItemsController < ApplicationController
     @item = Item.find_by_id(params[:id])
     @categories = Category.all
     @discussion = Discussion.find_by_item_id (@item.id)
-    @cart = Cart.find_by_id(session[:cart_id])
     @cart_item = CartItem.where(cart: @cart, item: @item).first
+    @cart = Cart.find_by_id(session[:cart_id])
     @price = session[:total_price]
     puts @price
     if @cart.nil?
-      @cart = Cart.create
+      @cart = Cart.create(id: session[:cart_id])
       session[:cart_id] = @cart.id
+      puts '****'
+      puts @cart.id
+      puts '****'
     end
     render 'show_item'
   end
@@ -48,33 +51,28 @@ class ItemsController < ApplicationController
   end
 
   def checkout
+    @sum = 0
     @item = Item.find_by_id(params[:id])
     @cart = Cart.find_by_id(session[:cart_id])
-    @cart_item = CartItem.where(cart: @cart, item: @item).first
-    @price = session[:total_price]
+    @cart_items = CartItem.where(cart: @cart)
+    @cart_items.each do |c|
+      total = (c.item.price * c.quantity)
+      @sum += total
+    end
+    return @sum
     render 'checkout'
   end
 
   def add_to_cart
     cart = Cart.find(session[:cart_id])
     item = Item.find(params[:id])
-<<<<<<< HEAD
     cart_item = CartItem.where(cart: cart, item: item).first
-    total_price = 0
     if cart_item
-      puts cart_item
       cart_item.quantity += 1
       cart_item.save
-      session[:total_price] = (total_price + item.price) * cart_item.quantity
     else
       CartItem.create(cart: cart, item: item, quantity: 1)
     end
-=======
-    CartItem.create(cart: cart, item: item)
-    id = item.id
->>>>>>> 9f819e4a63d82d4072c2663711ae8c08abd8f057
     redirect_to "/items/show_item/#{item.id}"
   end
-
-
 end
