@@ -65,7 +65,6 @@ class ItemsController < ApplicationController
   def add_to_cart
     cart = Cart.find(session[:cart_id])
     item = Item.find(params[:id])
-<<<<<<< HEAD
     cart_item = CartItem.where(cart: cart, item: item).first
     total_price = 0
     if cart_item
@@ -76,10 +75,8 @@ class ItemsController < ApplicationController
     else
       CartItem.create(cart: cart, item: item, quantity: 1)
     end
-=======
     CartItem.create(cart: cart, item: item)
     id = item.id
->>>>>>> 9f819e4a63d82d4072c2663711ae8c08abd8f057
     redirect_to "/items/show_item/#{item.id}"
   end
 
