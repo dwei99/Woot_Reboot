@@ -8,8 +8,9 @@
       <%@categories.each do |category| %>
       <li><a href="/category/show/<%=category.id%>"><%=category.title %></a></li>
       <%end%>
+      <li><a href="/items/checkout/<%=@item.id%>">View Cart</a></li>
+      <li><a href="/login">Sign In</a></li>
     </ul>
-    <a href="/items/checkout/<%=@item.id%>">View Cart</a>
   </div>
 </nav>
 
@@ -31,7 +32,20 @@
         <a class="btn btn-primary btn-lg" href="/items/discussion/<%=@item.id%>" role="button">Join The Discussion</a>
     </div>
   </div>  <br>
+  <div class="container">
+      <ul class="nav nav-tabs">
+          <li class="nav active"><a href="#A" data-toggle="tab">Rating</a></li>
+          <li class="nav"><a href="#B" data-toggle="tab">B</a></li>
+          <li class="nav"><a href="#C" data-toggle="tab">C</a></li>
+      </ul>
 
+      <!-- Tab panes -->
+      <div class="tab-content">
+          <div class="tab-pane fade in active" id="A">Reviews</div>
+          <div class="tab-pane fade" id="B">Rating</div>
+          <div class="tab-pane fade" id="C">TBD</div>
+      </div>
+  </div>
 <div class="">
   <form action="/add_to_cart/<%= @item.id %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

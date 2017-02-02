@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'ratyrate'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'hirb'

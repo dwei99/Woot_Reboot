@@ -11,6 +11,15 @@
       <li><a href="/category/show/<%=category.id%>"><%=category.title %></a></li>
       <%end%>
     </ul>
+    <ul class="nav navbar-nav">
+      <% if !@user %>
+      <li><a href="/login">Sign In</a></li>
+      <% end %>
+      <% if @user %>
+      <li><a href="/logout">Logout</a></li>
+      <li><a href="/users/edit/<%=@user.id%>">Update Account Settings</a></li>
+      <% end %>
+     </ul>
   </div>
 </nav>
 <div class="container">

@@ -1,2 +1,74 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav active"><a href="#A" data-toggle="tab">User Information</a></li>
+        <li class="nav"><a href="#B" data-toggle="tab">Shipping Address</a></li>
+        <li class="nav"><a href="/">Go Back</a></li>
+
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="A">
+          <form action="/users/edit_acct/<%=@user.id%>" method="post">
+            <% if flash[:errors] %>
+            <div class="alert alert-danger">
+                <% flash[:errors].each do |error| %> <br>
+                <strong><%= error%></strong>
+                <%end%>
+            </div>
+            <%end%>
+            <div class="form-group">
+              <h1>Please Update Your Account settings below</h1>
+              <div class="col-md-4">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label for="f_name">First Name</label>
+                <input type="text" class="form-control" id="f_name" name="f_name" value="<%=@user.f_name%>" required>
+                <label for="l_name">Last Name</label>
+                <input type="text" class="form-control" id="l_name" name="l_name" value="<%=@user.l_name%>" required>
+                <label for="">Email address</label>
+                <input type="email" class="form-control" id="email" name="email"
+                value="<%=@user.email%>" required>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                <label for="password_confirmation">Password Conformation</label>
+                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Password Confirmation" required> <br>
+                <button type="submit" class="btn btn-primary">Update Account Settings</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="B">
+          <form action="/users/add_address" method="post">
+            <% if flash[:errors] %>
+            <div class="alert alert-danger">
+                <% flash[:errors].each do |error| %> <br>
+                <strong><%= error%></strong>
+                <%end%>
+            </div>
+            <%end%>
+            <div class="form-group">
+              <h1>Please Enter New Shipping Address</h1>
+              <div class="col-md-4">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" id="street" name="street" placeholder="street" required>
+                <label for="unit_number">Unit Number</label>
+                <input type="text" class="form-control" id="unit_number" name="unit_number" placeholder="unit number ex. (Apt 202)" >
+                <label for="">City</label>
+                <input type="city" class="form-control" id="city" name="city"
+                placeholder="city" required>
+                <label for="">State</label>
+                <input type="state" class="form-control" id="state" name="state"
+                placeholder="state" required>
+                <label for="">Zipcode</label>
+                <input type="zipcode" class="form-control" id="zipcode" name="zipcode"
+                placeholder="zipcode" required>
+                 <br>
+                <button type="submit" class="btn btn-primary">Update Address</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        </div>
+    </div>
+</div>

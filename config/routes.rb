@@ -15,6 +15,12 @@ Rails.application.routes.draw do
 
   get 'users/index'
 
+  get 'users/edit/:id' => "users#edit"
+
+  post 'users/edit_acct/:id' => "users#edit_acct"
+
+  post '/users/add_address' => "users#add_address"
+
   post 'users/create' => "users#create"
 
   post 'users/log_user' => 'users#log_user'

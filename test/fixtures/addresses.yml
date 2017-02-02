@@ -2,7 +2,7 @@
 
 one:
   street: MyString
-  nuumber: MyString
+  unit_number: MyString
   city: MyString
   state: MyString
   zipcode: 1
@@ -10,7 +10,7 @@ one:
 
 two:
   street: MyString
-  nuumber: MyString
+  unit_number: MyString
   city: MyString
   state: MyString
   zipcode: 1

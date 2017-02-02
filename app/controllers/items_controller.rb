@@ -2,8 +2,11 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @Deal_of_Day = Item.offset(rand(Item.count)).first
-
     @categories = Category.all
+
+    if session[:id]
+      @user = User.find(session[:id])
+    end
     render 'index'
   end
 
@@ -11,6 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def show_item
+    current_user = User.find(session[:id])
     @item = Item.find_by_id(params[:id])
     @categories = Category.all
     @discussion = Discussion.find_by_item_id (@item.id)
@@ -27,8 +31,7 @@ class ItemsController < ApplicationController
 
   def show_category
     @category = Category.find(params[:id])
-    #  @category = Category.find(params[:id]).items
-     @categories = Category.all
+    @categories = Category.all
 
   end
 
