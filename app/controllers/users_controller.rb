@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def log_user
      @user = User.find_by_email(params[:email])
      if @user && @user.authenticate(params[:password])
-       session[:id] = @user.id
+       session[:user_id] = @user.id
        redirect_to "/"
      else
        flash[:log_error] = 'Invalid email/password combination'
@@ -42,11 +42,11 @@ class UsersController < ApplicationController
    end
 
   def edit
-    @user = User.find(session[:id])
+    @user = User.find(session[:user_id])
   end
 
   def edit_acct
-    @user = User.find(session[:id])
+    @user = User.find(session[:user_id])
     user = User.update(@user,f_name:params[:f_name],l_name:params[:l_name],email:params[:email], password:params[:password], password_confirmation: params[:password_confirmation])
     if !user.errors.blank?
       puts "********"
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   end
 
   def add_address
-    user = User.find(session[:id])
+    user = User.find(session[:user_id])
     address = Address.create(street:params[:street], unit_number:params[:unit_number], city:params[:city],state:params[:state],zipcode:params[:zipcode], user:user)
     if !address.errors.blank?
         flash[:errors] = address.errors.messages

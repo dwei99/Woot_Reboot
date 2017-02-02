@@ -8,7 +8,7 @@
       <%@categories.each do |category| %>
       <li><a href="/category/show/<%=category.id%>"><%=category.title %></a></li>
       <%end%>
-      <li><a href="/items/checkout/<%=@item.id%>">View Cart</a></li>
+      <li><a href="/items/checkout/<%=@cart.id%>">View Cart</a></li>
       <li><a href="/login">Sign In</a></li>
     </ul>
   </div>

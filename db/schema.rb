@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20170202205818) do
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer  "cart_id"
     t.integer  "item_id"
+    t.integer  "cart_id"
     t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,11 +1,34 @@
-<h1>Checkout</h1>
-<div class="container" height="100">
-  <h3>Your Cart</h3>
-  <% @cart.items.each do |item| %>
-  <p>Item: <%= item.name %></p>
-  <p>Quantity: <%= @cart_item.quantity %></p>
-  <p>Cost: $<%= item.price %></p>
+<div class="">
+  <div class="container" height="100">
+    <h1>Checkout</h1>
+    <h3>Your Cart</h3>
+    <% @cart.cart_items.each do |cart_item| %>
+    <p>Item: <%= cart_item.item.name %></p>
+    <p>Quantity: <%= cart_item.quantity %></p>
+    <p>Cost: $<%= cart_item.item.price %></p>
+    <% end %>
+  </div>
+  <a href="/logout">Logout</a>
+
+  <%= yield %>
+
+  <%= form_tag charges_path do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span>Amount: $<%= @sum %></span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Please Enter Your Information"
+            data-amount='$<%= @sum %>'
+            data-locale="auto"></script>
   <% end %>
-  <p>Total: $<%= @price %></p>
+  <h2>Thanks, you paid <strong>$<%= @sum %></strong>!</h2>
 </div>
-<a href="/logout">Logout</a>
