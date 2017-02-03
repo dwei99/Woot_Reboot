@@ -29,6 +29,8 @@ class ItemsController < ApplicationController
 
   def show_item
     @item = Item.find_by_id(params[:id])
+    @reviews = Review.find_by_item_id(@item)
+    puts "Reviews", @reviews
     @categories = Category.all
     @discussion = Discussion.find_by_item_id (@item.id)
     @cart_item = CartItem.where(cart: @cart, item: @item).first
@@ -51,6 +53,21 @@ class ItemsController < ApplicationController
 
   end
 
+  def create_review
+    if !session[:user_id].present?
+      flash[:notice] = "If you want to post a review, please log in."
+      return redirect_to "/items/show_item/#{params[:item_id]}"
+    end
+    user = User.find(session[:user_id])
+    item = Item.find(params[:item_id])
+    item_review = Review.create(content:params[:review],rating:params[:rating],item:item,user:user)
+    if !item_review.errors.blank?
+      flash[:errors] = item_review.errors.messages
+      return redirect_to "/items/show_item/#{item.id}"
+    end
+    return redirect_to "/items/show_item/#{item.id}"
+  end
+
   def show_discussion
     @item = Item.find_by_id(params[:id])
     @discussions = Item.find(@item).discussions
@@ -64,9 +81,6 @@ class ItemsController < ApplicationController
       return redirect_to "/items/discussion/#{params[:item_id]}"
     end
     user = User.find_by_id(session[:user_id])
-    puts '*********'
-    puts session[:user_id]
-    puts '*********'
     item = Item.find_by_id(params[:item_id])
     disscussion_post = Discussion.create(content:params[:content],item:item,user:user)
     if !disscussion_post.errors.blank?

@@ -4,8 +4,10 @@ one:
   content: MyString
   rating: 1
   item_id: 
+  user_id: 
 
 two:
   content: MyString
   rating: 1
   item_id: 
+  user_id: 

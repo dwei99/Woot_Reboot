@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   post '/items/create_item' =>'items#create_item'
 
+  post '/items/:item_id/create_review' => 'items#create_review'
+
   get 'items/checkout/:id' => 'items#checkout'
 
   get 'items/show_item/:id' => 'items#show_item'

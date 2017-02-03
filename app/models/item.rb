@@ -8,6 +8,7 @@ class Item < ActiveRecord::Base
   validates :category, :presence => {message:["Category cant be blank"]}
 
   has_many :discussions
+  has_many :reviews
   # ratyrate_rateable "rating"
 
 end
