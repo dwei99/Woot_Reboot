@@ -40,13 +40,11 @@ price: 7.99, quantity: 10, category:Category.find(1)
 Item.create name: 'Water', description: 'Refreshing', img_url: 'http://cliparts.co/cliparts/qiB/X7q/qiBX7qLqT.jpg',
 price: 1.99, quantity: 10, category:Category.find(1)
 
-Item.create name: 'Mountain Bike', description: 'Gives you wings', img_url: 'http://comparecamp.com/media/uploads/2014/09/bike.jpg',
+Item.create name: 'Mountain Bike', description: 'Go big or go home', img_url: 'http://comparecamp.com/media/uploads/2014/09/bike.jpg',
 price: 250.72, quantity: 10, category:Category.find(2)
 
 Item.create name: 'Vintage Bike', description: 'This old bike needs a litte TLC', img_url: 'http://vintagebicyclerestoration.com/vbrsys/wp-content/uploads/2012/09/Schwinn_0139.jpg
 ',price: 12.65, quantity: 10, category:Category.find(2)
-
-Item.create name: 'Jon', description: 'Tandem Jon', img_url: 'assets/images/jon.jpg',price: 12.65, quantity: 10, category:Category.find(2)
 
 Item.create name: 'kanye', description: 'genius', img_url: 'http://www.therwandan.com/ki/wp-content/uploads/sites/3/2016/02/Kanye-West.jpg', price: 0.99, quantity: 1, category: Category.find(4)
 
