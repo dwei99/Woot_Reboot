@@ -26,6 +26,7 @@ User.create f_name: "Admin", l_name: "User", email:"admin@email.com", password:'
 Category.create title: "Drinks"
 Category.create title: "Bikes"
 Category.create title: "Clothing"
+Category.create title: "Music"
 
 Item.create name: 'Socks', description: 'Gives you traction', img_url: 'http://www.rastaempire.com/images/Product/medium/4214-cannabis-ankle-socks-brngreen.jpg',
 price: 10.99, quantity: 10, category:Category.find(3)
@@ -36,4 +37,4 @@ price: 7.99, quantity: 10, category:Category.find(1)
 Item.create name: 'mountain bike', description: 'Gives you wings', img_url: 'http://comparecamp.com/media/uploads/2014/09/bike.jpg',
 price: 250.72, quantity: 10, category:Category.find(2)
 
-Item.create name: 'kanye', description: 'genius', img_url: 'http://www.therwandan.com/ki/wp-content/uploads/sites/3/2016/02/Kanye-West.jpg', price: 0.99
+Item.create name: 'kanye', description: 'genius', img_url: 'http://www.therwandan.com/ki/wp-content/uploads/sites/3/2016/02/Kanye-West.jpg', price: 0.99, quantity: 1, category: Category.find(4)
