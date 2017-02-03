@@ -1,14 +1,20 @@
 <div class="">
-  <div class="container" height="100">
+
     <h1>Checkout</h1>
+
+    <hr>
+
+
     <h3>Your Cart</h3>
-    <% @cart.cart_items.each do |cart_item| %>
-    <p>Item: <%= cart_item.item.name %></p>
-    <p>Quantity: <%= cart_item.quantity %></p>
-    <p>Cost: $<%= cart_item.item.price %></p>
-    <% end %>
-  </div>
-  <a href="/logout">Logout</a>
+    <div class="" style="height: 150px;overflow: scroll;">
+      <% @cart.cart_items.each do |cart_item| %>
+      <p>Item: <%= cart_item.item.name %></p>
+      <p>Quantity: <%= cart_item.quantity %></p>
+      <p>Cost: $<%= cart_item.item.price %></p>
+      <% end %>
+    </div>
+
+  <hr>
 
   <%= yield %>
 
@@ -30,5 +36,8 @@
             data-amount='$<%= @sum %>'
             data-locale="auto"></script>
   <% end %>
-  <h2>Thanks, you paid <strong>$<%= @sum %></strong>!</h2>
+
+  <hr>
+
+  <a href="/">Home</a> | <a href="/logout">Logout</a>
 </div>

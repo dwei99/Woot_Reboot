@@ -17,7 +17,13 @@
       <%@categories.each do |category| %>
       <li class="sup"><a href="/category/show/<%=category.id%>"><%=category.title %></a></li>
       <%end%>
+      <% if !@user %>
       <li class="sup"><a href="/login">Sign In</a></li>
+      <% end %>
+      <% if @user %>
+      <li class="sup"><a href="/logout">Logout</a></li>
+      <li class="sup"><a href="/users/edit/<%=@user.id%>">Update Account Settings</a></li>
+      <% end %>
       <li><a href="/items/checkout/<%=@cart.id%>"><img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/simple-black-square-icons-business/126581-simple-black-square-icon-business-cart-solid.png" alt="" height = '50' width = '50'></a></li>
     </ul>
   </div>
@@ -53,6 +59,7 @@
           <li class="nav"><a href="#B" data-toggle="tab">Add A Review</a></li>
       </ul>
 
+      <p></p>
       <!-- Tab panes -->
       <div class="tab-content">
           <div class="tab-pane fade in active" id="A">

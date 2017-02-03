@@ -45,6 +45,9 @@ class ItemsController < ApplicationController
     @cart = Cart.find_by_id(session[:cart_id])
     @price = session[:total_price]
     puts @price
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
     if @cart.nil?
       @cart = Cart.create(id: session[:cart_id])
       session[:cart_id] = @cart.id
