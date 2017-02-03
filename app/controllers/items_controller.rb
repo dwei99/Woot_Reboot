@@ -56,6 +56,13 @@ class ItemsController < ApplicationController
     if session[:user_id]
       @user = User.find(session[:user_id])
     end
+    if @cart.nil?
+      @cart = Cart.create(id: session[:cart_id])
+      session[:cart_id] = @cart.id
+      puts '****'
+      puts @cart.id
+      puts '****'
+    end
   end
 
   def create_review
