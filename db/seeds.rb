@@ -32,4 +32,4 @@ price: 7.99, quantity: 10, category:Category.find(1)
 Item.create name: 'mountain bike', description: 'Gives you wings', img_url: 'http://comparecamp.com/media/uploads/2014/09/bike.jpg',
 price: 250.72, quantity: 10, category:Category.find(2)
 
-Item.create name: 'kanye', description: 'genius', price: 0.99
+Item.create name: 'kanye', description: 'genius', img_url: 'http://www.therwandan.com/ki/wp-content/uploads/sites/3/2016/02/Kanye-West.jpg', price: 0.99
