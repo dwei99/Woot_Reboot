@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
 
   def add_item
     @categories = Category.all
-
   end
 
   def create_item
@@ -32,6 +31,22 @@ class ItemsController < ApplicationController
     if item
       flash[:notice] = "Item Successful Created"
       return redirect_to "/add_item"
+    end
+  end
+
+  def add_category
+
+  end
+
+  def create_category
+    category = Category.create(title:params[:category])
+    if !category.errors.blank?
+      flash[:errors] = category.errors.messages
+      return redirect_to "/add_category"
+    end
+    if category
+      flash[:notice] = "Category Successful Created"
+      return redirect_to "/add_category"
     end
   end
 

@@ -1,6 +1,12 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar-default {
+  background-color:teal;
+  background-image: none;
+  background-repeat: no-repeat;
+ }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
       width:20%;
