@@ -1,27 +1,35 @@
+<style media="screen">
+  .sup {
+    margin-top: 14px
+  }
+  .navbar-header {
+    margin-top: 14px
+  }
+</style>
 
-<h1>It's a Woot Reboot</h1>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Woot Reboot</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="sup" class="active"><a href="#">Home</a></li>
       <%@categories.each do |category| %>
-      <li><a href="/category/show/<%=category.id%>"><%=category.title %></a></li>
+      <li class="sup"><a href="/category/show/<%=category.id%>"><%=category.title %></a></li>
       <%end%>
     </ul>
     <ul class="nav navbar-nav">
       <% if !@user %>
-      <li><a href="/login">Sign In</a></li>
+      <li class="sup"><a href="/login">Sign In</a></li>
       <% end %>
       <% if @user %>
-      <li><a href="/logout">Logout</a></li>
-      <li><a href="/users/edit/<%=@user.id%>">Update Account Settings</a></li>
+      <li class="sup"><a href="/logout">Logout</a></li>
+      <li class="sup"><a href="/users/edit/<%=@user.id%>">Update Account Settings</a></li>
       <% end %>
       <% if @user && @user.admin %>
         <li><a href="/add_item">Add Item</a></li>
       <% end %>
+      <li><a href="/items/checkout/<%=@cart.id%>"><img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/simple-black-square-icons-business/126581-simple-black-square-icon-business-cart-solid.png" alt="" height = '50' width = '50'></a></li>
      </ul>
   </div>
 </nav>
