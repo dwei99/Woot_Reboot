@@ -52,16 +52,13 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img class="d-block img-fluid" src="<%=@items.first.img_url%>" alt="First slide" width="250" height="200">
+        <a href="/items/show_item/<%=@items.first.id%>"><img class="d-block img-fluid" src="<%=@items.first.img_url%>" alt="First slide" width="250" height="200"></a>
       </div>
-
-      <div class="item">
-        <img class="d-block img-fluid" src="<%=@items.second.img_url%>" alt="Second slide" width="250" height="200">
-      </div>
-
-      <div class="item">
-        <img class="d-block img-fluid" src="<%=@items.third.img_url%>" alt="Third slide" width="250" height="200">
-      </div>
+      <%@items.each do |item| %>
+        <div class="item">
+          <a href="/items/show_item/<%=item.id%>"><img class="d-block img-fluid" src="<%=item.img_url%>" alt="Second slide" width="250" height="200"></a>
+        </div>
+      <%end%>
     </div>
 
     <!-- Left and right controls -->

@@ -30,7 +30,7 @@ $(document).ready(function() {
       <%@category.items.each do |item| %>
         <div class="item  col-xs-4 col-lg-4">
             <div class="thumbnail">
-                <img class="group list-group-image" src="<%=item.img_url%>" alt="<%=item.description%>" />
+              <a href="/items/show_item/<%=item.id%>"><img class="group list-group-image" src="<%=item.img_url%>" alt="<%=item.description%>"/></a>
                 <div class="caption">
                     <h4 class="group inner list-group-item-heading">
                         <%=item.name%></h4>
@@ -42,6 +42,7 @@ $(document).ready(function() {
                                 $<%=item.price%></p>
                         </div>
                         <div class="col-xs-12 col-md-6">
+                          
                             <a class="btn btn-success" href="">Add to cart</a>
                         </div>
                     </div>
