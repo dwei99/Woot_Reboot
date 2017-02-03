@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
     @items = Item.all
     @Deal_of_Day = Item.offset(rand(Item.count)).first
     @categories = Category.all
+    @cart = Cart.find_by_id(session[:cart_id])
 
     if session[:user_id]
       @user = User.find(session[:user_id])
@@ -32,9 +33,13 @@ class ItemsController < ApplicationController
   end
 
   def show_category
+    @item = Item.find_by_id(params[:id])
     @category = Category.find(params[:id])
     @categories = Category.all
-
+    @cart = Cart.find_by_id(session[:cart_id])
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
   end
 
   def show_discussion
