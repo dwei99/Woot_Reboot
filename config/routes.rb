@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  get 'items/show'
+  get '/add_item' => 'items#add_item'
+
+  post '/items/create_item' =>'items#create_item'
 
   get 'items/checkout/:id' => 'items#checkout'
 
