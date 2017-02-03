@@ -19,6 +19,10 @@ User.create f_name: 'Jon', l_name: 'Stults', email: 'stults@email.com', password
 
 User.create f_name: 'El', l_name: 'P', email: 'p@email.com', password: 'asdfasdf'
 
+#Admin user
+
+User.create f_name: "Admin", l_name: "User", email:"admin@email.com", password:'root', admin:1
+
 Category.create title: "Drinks"
 Category.create title: "Bikes"
 Category.create title: "Clothing"

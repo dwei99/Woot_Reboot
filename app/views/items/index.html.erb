@@ -19,6 +19,9 @@
       <li><a href="/logout">Logout</a></li>
       <li><a href="/users/edit/<%=@user.id%>">Update Account Settings</a></li>
       <% end %>
+      <% if @user && @user.admin %>
+        <li><a href="/add_item">Add Item</a></li>
+      <% end %>
      </ul>
   </div>
 </nav>
