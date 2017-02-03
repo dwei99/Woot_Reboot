@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+      <a class="navbar-brand" href="/add_item">Add Item</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a class="navbar-brand" href="/logout">Logout</a></li>
+     </ul>
+  </div>
+</nav>
+<form action="/items/create_category" method="post">
+  <% if flash[:notice] %>
+  <div class="alert alert-success">
+      <strong><%= flash[:notice] %></strong>
+  </div>
+  <%end%>
+  <% if flash[:errors] %>
+  <div class="alert alert-danger">
+      <% flash[:errors].each do |error| %> <br>
+      <strong><%= error%></strong>
+      <%end%>
+  </div>
+  <%end%>
+  <div class="form-group">
+    <h1>Add a Category</h1>
+    <div class="col-md-4">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <label for="category"></label>
+      <input type="text" class="form-control" id="category" name="category" placeholder="Category Name" > <br>
+      <button type="submit" class="btn btn-primary">Create Category</button>
+    </div>
+  </div>
+</form>
