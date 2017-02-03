@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor', group: :production
 # gem 'ratyrate'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
