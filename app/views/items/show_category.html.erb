@@ -61,7 +61,7 @@ $(document).ready(function() {
                                 $<%=item.price%></p>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                          <form action="/add_to_cart/<%= @item.id %>" method="post">
+                          <form action="/add_to_cart/<%= item.id %>" method="post">
                             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                             <input class="btn btn-success" type="submit" name="" value="Add to Cart">
                           </form>
