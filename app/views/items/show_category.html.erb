@@ -49,7 +49,7 @@ $(document).ready(function() {
       <%@category.items.each do |item| %>
         <div class="item  col-xs-4 col-lg-4">
             <div class="thumbnail">
-                <img class="group list-group-image" src="<%=item.img_url%>" alt="<%=item.description%>" />
+              <a href="/items/show_item/<%=item.id%>"><img class="group list-group-image" src="<%=item.img_url%>" alt="<%=item.description%>"/></a>
                 <div class="caption">
                     <h4 class="group inner list-group-item-heading">
                         <%=item.name%></h4>
