@@ -28,7 +28,7 @@ Category.create title: "Bikes"
 Category.create title: "Clothing"
 Category.create title: "Music"
 
-Item.create name: 'Socks', description: 'Gives you traction', img_url: 'http://www.rastaempire.com/images/Product/medium/4214-cannabis-ankle-socks-brngreen.jpg',
+Item.create name: 'Socks', description: 'Gives you traction', img_url: 'http://az616578.vo.msecnd.net/files/2016/06/10/636011916262124344-1313810365_socks.jpg',
 price: 10.99, quantity: 10, category:Category.find(3)
 
 Item.create name: 'Timberlands', description: 'Great for every occasion', img_url: 'https://s-media-cache-ak0.pinimg.com/originals/38/c9/d0/38c9d0e7cf77cd206d3bfe40c77d3d5e.jpg',

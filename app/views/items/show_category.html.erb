@@ -21,7 +21,7 @@ $(document).ready(function() {
       <a class="navbar-brand" href="/">Woot Reboot</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="sup" class="active"><a href="#">Home</a></li>
+      <li class="sup" class="active"><a href="/">Home</a></li>
       <%@categories.each do |category| %>
       <li class="sup"><a href="/category/show/<%=category.id%>"><%=category.title %></a></li>
       <%end%>
